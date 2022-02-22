@@ -19,13 +19,18 @@ public class TodoServices {
         return todorepository.findAll();
     }
 
+    // buscar tarea por id
+    public Optional<Todo> findById(Long id){
+        return todorepository.findById(id);
+    }
+
     // Crear nueva tarea
     public Todo save(Todo todo){
         return todorepository.save(todo);
     }
 
     // Actualizar tarea
-    public Todo update(Todo todo) {
+    public Todo updateTodo(Todo todo) {
         Optional<Todo> TodoData = todorepository.findById(todo.getId());
 
         if(TodoData.isEmpty()){
